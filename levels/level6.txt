@@ -4,7 +4,7 @@
         X              X     
    J    X   E    G     X     
  XXXXXXXX   XXXXXXXX   X     
- X      P   X      X   X     
+ X      P          X   X     
  X  XXXXXXX X  O   X   X     
  X  X       X      X   X     
  X  X   SSS X      X   X     
@@ -13,8 +13,8 @@
  X  XXXXXXX X      X   X     
  X        X X      X   X     
  X    G   X X      X   X     
- X        X X      X   X     
+ X        X X   E   J  X     
  XXXXXXXXXX XXXXXXXXX   X    
-                      Z  X    
+ X G   E              Z  X    
  XXXXXXXXXXXXXXXXXXXXXXXXX   
  X                          
