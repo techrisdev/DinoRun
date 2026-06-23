@@ -3,16 +3,16 @@
    G        X   E     X        
     XXXXXX  X   X     X        
           X X   X     X        
-  P       X X   XXXXX X        
+  P             XXXXX X        
  XXXXXXXXX X         X        
  X         X   J     X        
- X   O     X         X        
+ X   O               X        
  X         XXXXXXXXXXX        
  X   X           G           
  X   X   XXXXXXXXXXXXXXXXXXXX 
  X   X                      Z
  X   X   XXXXXXXXXXXXXXXXXXXXX
- X   X   X           X       
+ X   X X X           X       
  X   X   X    SSS    X       
  X   X   X           X       
  X   X   XXXXXXXXXXXXX       
