@@ -1,8 +1,8 @@
    XXXXXXXXXXXXXXXXXXXXXXXXXX
-   X      G               X
+   X      G   P           X
    X   XXXXXXXX   XXXXX   X
    X   X      X   X   X   X
-   X P X  O   X   X J X   X
+   X   X  O   X   X J X   X
    X   X      X   X   X   X
    X   X  XXXXX   X   X   X
    X   X          X   X   X
@@ -14,7 +14,7 @@
    X   X   X         X  
    X   X   X  XXXXXXXX  
    X   X              Z  
-   X   X   XXXXXXXXXXXXXX
+   X   X  XXXXXXXXXXXXXXX
    X   X                 
    X   X                 
    XXXXXXXXXXXXXXXXXXXXXX
