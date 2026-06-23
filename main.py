@@ -1,0 +1,83 @@
+import sys
+import random
+from pathlib import Path
+
+import pygame
+from constants import *
+from level import Level
+
+class Game:
+    def __init__(self):
+        pygame.init()
+        self.screen = pygame.display.set_mode((1000, 720))
+        pygame.display.set_caption("Dino Run")
+        self.clock = pygame.time.Clock()
+
+        self.base_path = BASE_PATH
+        self.level_folder = self.base_path / "levels"
+        self.level_folder.mkdir(exist_ok=True)
+
+        self.level_files = sorted(
+            self.level_folder.glob("*.txt"),
+            key=lambda path: int(''.join([c for c in path.stem if c.isdigit()]) or 0)
+        )
+        if not self.level_files:
+            raise FileNotFoundError(f"Keine Level-Dateien im Ordner '{self.level_folder}' gefunden.")
+
+        # Zufällige Hintergrundmusik laden
+
+        music_number = random.randint(1, 2)
+
+        music_path = self.base_path / "music" / ("music" + str(music_number) + ".mp3")
+        if music_path.exists():
+            pygame.mixer.music.load(str(music_path))
+            pygame.mixer.music.play(-1)  # -1 = Endlosschleife
+
+        self.current_level_index = 0
+        self.load_level()
+
+    def load_level(self):
+        level_path = self.level_files[self.current_level_index]
+        with open(level_path, encoding="utf-8") as f:
+            level_data = [line.rstrip("\n") for line in f]
+
+        self.level = Level(level_data, self.screen, self.current_level_index + 1, level_path.stem)
+
+    def restart_level(self):
+        self.load_level()
+
+    def next_level(self):
+        self.current_level_index += 1
+        if self.current_level_index >= len(self.level_files):
+            self.current_level_index = 0
+        self.load_level()
+
+    def run(self):
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    sys.exit()
+                if event.type == pygame.KEYDOWN and event.key == pygame.K_RETURN:
+                    if self.level.game_over:
+                        self.restart_level()
+                    elif self.level.level_completed:
+                        self.next_level()
+
+            # Hintergrund kacheln, damit die Kamera unendlich weit scrollen kann
+            bg_width = BACKGROUND_IMAGE.get_width()
+            screen_width = self.screen.get_width()
+            offset_x = int(self.level.camera_x % bg_width)
+            if offset_x > 0:
+                offset_x -= bg_width
+            for x in range(offset_x, screen_width, bg_width):
+                self.screen.blit(BACKGROUND_IMAGE, (x, 0))
+
+            self.level.run()           # Level-Logik ausführen
+            
+            pygame.display.update()    # Monitor aktualisieren
+            self.clock.tick(FPS)       # Auf 60 Bilder begrenzen
+
+if __name__ == "__main__":
+    game = Game()
+    game.run()

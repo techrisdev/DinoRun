@@ -1,0 +1,18 @@
+                              
+    G      J       X      O   
+         XXXXXXXX   XXXXX    
+   X              X      X   
+   X   XXXX    XXXXX      X  
+   X        G       E     X  
+   X   XXXXX   XXXXXXXXXXXX  
+   X      P                   
+   X    O             J      
+   XXXXXXXXXXXXXXXXXXXXXXXX  
+      SSS   XXXX       SSS    
+   XXXXX   X   X   XXXXXXX   
+           X   X             
+    G      X   X    G        
+   XXXXXXXXXXXXXXXXXXXXXXXXXX
+                              
+          E            O     Z 
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
