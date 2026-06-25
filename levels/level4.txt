@@ -1,21 +1,18 @@
-                             X        
- X  J   X    XXXXX      XXXXX   
- X  X   X        X      X   X   
- X  X   X   G    X      X   X   
- X  XXXXX   XXXXXX      X   X   
- X        P X   X        X   X   
- X   XXXXXXXXXXX   XXXXXXX   X 
- X   X                  J    X 
- X   X    E         XXXXXXXXXX 
- X   X   XXXXXXX   X         X 
- X   X   X     X   X   G     X 
- X   X   X     X   X         X 
- X   X   X     X   X   XXXXXX 
- X   X   X     X   X   X      
- X   X   X     X   X   Z      
- X   X   X     X   X   X      
- X   X   X     X   X   X      
- X   X   X     X   X   X      
- X   X   X     X   X   X      
- X           E       J       Z
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                         
+   P   XXXXX  X E  X   
+   X       X   XXXXX         
+   X   G   X   X    Z    
+   X       X   XXXX XXX  
+   X       X   X  X E    
+   X   E   XXXXX  X      
+   X       X  S   X  G   
+   XXXXXX  X      X      
+   X       X  O   X      
+   X       X      X      
+   X   G   X      X  J   
+   X  S    X      X      
+   X       X   XXXX      
+   X   S   X   X S       
+   X       X   X        
+   X       X   X        
+XXXXXXXXXXXXXXXXXXXXXXXXX

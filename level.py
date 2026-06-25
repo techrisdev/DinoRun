@@ -195,17 +195,21 @@ class Level:
         # Schaden nur prüfen, wenn nicht unbesiegbar
         if not p.is_invincible:
             for enemy in self.enemies.sprites():
-                if p.rect.colliderect(enemy.rect) or (p.rect.bottom == enemy.rect.top and p.rect.right > enemy.rect.left and p.rect.left < enemy.rect.right):
-                    player_above_enemy = p.rect.bottom <= enemy.rect.top + (TILE_SIZE // 2)
-                    landing_on_enemy = player_above_enemy and p.direction.y >= 0
+                if p.rect.colliderect(enemy.rect):
+                    # Check ob Spieler VON OBEN auf Feind springt (nicht von der Seite)
+                    player_horizontal_over_enemy = (p.rect.centerx > enemy.rect.left and p.rect.centerx < enemy.rect.right)
+                    player_above_enemy = p.rect.bottom <= enemy.rect.top + (TILE_SIZE // 4)
+                    landing_on_enemy = player_horizontal_over_enemy and player_above_enemy and p.direction.y >= 0
+                    
                     if landing_on_enemy:
                         self.enemies.remove(enemy)
                         p.direction.y = p.jump_speed // 2
-                        if p.rect.bottom > enemy.rect.top:
-                            p.rect.bottom = enemy.rect.top
+                        p.rect.bottom = enemy.rect.top
                         break
-                    self.reset_player()
-                    return
+                    else:
+                        # Von der Seite oder von unten getroffen
+                        self.reset_player()
+                        return
 
             for spike in self.spikes.sprites():
                 if p.rect.colliderect(spike.rect):

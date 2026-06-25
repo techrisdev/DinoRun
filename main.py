@@ -9,7 +9,7 @@ from level import Level
 class Game:
     def __init__(self):
         pygame.init()
-        self.screen = pygame.display.set_mode((1000, 720))
+        self.screen = pygame.display.set_mode((1000, 720), pygame.FULLSCREEN)
         pygame.display.set_caption("Dino Run")
         self.clock = pygame.time.Clock()
 
@@ -34,6 +34,7 @@ class Game:
             pygame.mixer.music.play(-1)  # -1 = Endlosschleife
 
         self.current_level_index = 0
+        self.game_completed = False
         self.load_level()
 
     def load_level(self):
@@ -59,10 +60,17 @@ class Game:
                     pygame.quit()
                     sys.exit()
                 if event.type == pygame.KEYDOWN and event.key == pygame.K_RETURN:
-                    if self.level.game_over:
+                    if self.game_completed:
+                        pygame.quit()
+                        sys.exit()
+                    elif self.level.game_over:
                         self.restart_level()
                     elif self.level.level_completed:
-                        self.next_level()
+                        if self.current_level_index == len(self.level_files) - 1:
+                            # Level 10 (letzte Level) komplett - Game Completed!
+                            self.game_completed = True
+                        else:
+                            self.next_level()
 
             # Hintergrund kacheln, damit die Kamera unendlich weit scrollen kann
             bg_width = BACKGROUND_IMAGE.get_width()
@@ -73,10 +81,30 @@ class Game:
             for x in range(offset_x, screen_width, bg_width):
                 self.screen.blit(BACKGROUND_IMAGE, (x, 0))
 
-            self.level.run()           # Level-Logik ausführen
+            if self.game_completed:
+                self.draw_game_completed()
+            else:
+                self.level.run()           # Level-Logik ausführen
             
             pygame.display.update()    # Monitor aktualisieren
             self.clock.tick(FPS)       # Auf 60 Bilder begrenzen
+
+    def draw_game_completed(self):
+        """Zeichnet den Game Completed Screen."""
+        font_big = pygame.font.Font(None, 80)
+        font_small = pygame.font.Font(None, 50)
+        
+        title = font_big.render("SPIEL FERTIG!", True, (255, 215, 0))
+        title_rect = title.get_rect(center=(self.screen.get_width() // 2, 150))
+        self.screen.blit(title, title_rect)
+        
+        message = font_small.render("Alle 10 Level geschafft!", True, (255, 255, 255))
+        message_rect = message.get_rect(center=(self.screen.get_width() // 2, 280))
+        self.screen.blit(message, message_rect)
+        
+        exit_text = font_small.render("ENTER um zu beenden", True, (100, 255, 100))
+        exit_rect = exit_text.get_rect(center=(self.screen.get_width() // 2, 400))
+        self.screen.blit(exit_text, exit_rect)
 
 if __name__ == "__main__":
     game = Game()

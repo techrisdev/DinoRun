@@ -1,20 +1,19 @@
-                        X     
-                        X     
-   G    XXXXXXXXXXXXXXXX     
-        X              X     
-   J    X   E    G     X     
- XXXXXXXX   XXXXXXXX   X     
- X      P          X   X     
- X  XXXXXXX X  O   X   X     
- X  X       X      X   X     
- X  X   SSS X      X   X     
- X  X       X      X   X     
- X  X       X      X   X     
- X  XXXXXXX X      X   X     
- X        X X      X   X     
- X    G   X X      X   X     
- X        X X   E   J  X     
- XXXXXXXXXX XXXXXXXXX   X    
- X G   E              Z  X    
- XXXXXXXXXXXXXXXXXXXXXXXXX   
- X                          
+                         
+   P XXXX   G   E        
+   X    X   X   X   XXX  
+   X    X   X O X   X    
+   X E  X   X   X   X    
+   X    X   X   XXXXX    
+   X    X S X   X        
+   X    X   X   X   G    
+   X    X   X   X        
+   X    X   X   X   Z X  
+   X    X   X   XXXXXXX   
+   X    X   X   X     X  
+   X G  X   X   X  E  X  
+   X    X   XXXXX     X  
+   X S  X   J   X     X  
+   X    X       XXXXXXX  
+   X    X                
+   XXXXX                
+XXXXXXXXXXXXXXXXXXXXXXXXX
